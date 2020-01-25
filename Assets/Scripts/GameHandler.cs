@@ -8,6 +8,9 @@ public class GameHandler : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public List<Vector2> linePositions;
+    public List<GameObject> Players;
+
+    public GameObject menu;
 
     public Text timerHolder;
 
@@ -26,9 +29,6 @@ public class GameHandler : MonoBehaviour
     }
 
     private void displayCountDown() {
-        //this.countDown.ToString().Split(',')[0]
-
-
         this.countDown -= Time.deltaTime;
 
         if (this.countDown <= -1)
@@ -58,10 +58,13 @@ public class GameHandler : MonoBehaviour
                 this.displayCountDown();
             }
 
-            if (linePositions[0].x < 0 && linePositions[1].x > 0)
+            if ((linePositions[0].x < 0 && linePositions[1].x > 0) && this.timer < 100)
             {
                 this.timer += Time.deltaTime;
 
+                /**
+                 * Mobile control
+                 */
                 if (Input.touchCount > 0)
                 {
                     foreach (Touch touch in Input.touches)
@@ -87,7 +90,14 @@ public class GameHandler : MonoBehaviour
                         }
                     }
                 }
+                /**
+                 * end Mobile control
+                 */
 
+
+                /**
+                 * Desktop control
+                 */
                 if (Input.GetMouseButtonUp(0))
                 {
                     if (linePositions[0].x > -8)
@@ -106,6 +116,34 @@ public class GameHandler : MonoBehaviour
                     }
                     linePositions[0] = new Vector2(linePositions[0].x + this.pullSpeed, 0);
                 }
+                /**
+                 * end Desktop control
+                 */
+            }
+            else 
+            {
+                Text gameOverInfo = null;
+                for (int i = 0; i < this.menu.transform.childCount; i++) {
+                    if (this.menu.transform.GetChild(i).name == "GameOverInfo") {
+                        gameOverInfo = this.menu.transform.GetChild(i).GetComponent<Text>();
+                    }
+                }
+
+                if (this.timer >= 100)
+                {
+                    this.timerHolder.text = String.Format("{0:0.0}", 100);
+                    gameOverInfo.text = "Ran out of time";
+                }
+                else if (linePositions[0].x >= 0)
+                {
+                    gameOverInfo.text = "Blue wins";
+                }
+                else
+                {
+                    gameOverInfo.text = "Red wins";
+                }
+
+                this.menu.SetActive(true);
             }
         } else {
             this.displayCountDown();
@@ -128,6 +166,7 @@ public class GameHandler : MonoBehaviour
         for (int i = 0; i < this.linePositions.Count; i++)
         {
             this.lineRenderer.SetPosition(i, linePositions[i]);
+            Players[i].transform.position = new Vector2(linePositions[i].x, Players[i].transform.position.y);
         }
     }
 }
