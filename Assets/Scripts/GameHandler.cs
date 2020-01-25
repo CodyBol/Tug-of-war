@@ -240,7 +240,7 @@ public class GameHandler : MonoBehaviour
              */
 
             this.timerHolder.text = String.Format("{0:0.0}", 100);
-            return "Ran out of time";
+            return "Tijd is om";
         }
         else if (linePositions[0].x >= 0)
         {
@@ -248,7 +248,7 @@ public class GameHandler : MonoBehaviour
              * when the right player wins
              */
 
-            return "Blue wins";
+            return "Blauw wint";
         }
         else
         {
@@ -256,7 +256,7 @@ public class GameHandler : MonoBehaviour
              * when the left player wins
              */
 
-            return "Red wins";
+            return "Rood wint";
         }
     }
 

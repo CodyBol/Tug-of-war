@@ -1022,7 +1022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tie
+  m_Text: Gelijkspel
 --- !u!222 &1534705917
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1529,12 +1529,12 @@ MonoBehaviour:
   - {fileID: 1426635879}
   - {fileID: 1497482391}
   menu: {fileID: 1745459426}
+  timer: 0
   timerHolder: {fileID: 882755107}
+  countDown: 3
   countDownText: {fileID: 749429726}
   countDownHolder: {fileID: 1453260115}
-  countDown: 3
   pullSpeed: 0.1
-  timer: 0
 --- !u!4 &1904399234
 Transform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rematch
+  m_Text: Opnieuw
 --- !u!222 &1923486964
 CanvasRenderer:
   m_ObjectHideFlags: 0
