@@ -2013,7 +2013,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2036,7 +2036,7 @@ MonoBehaviour:
     - Tik na het af tellen zo snel mogelijk aan jou zijde
 
 
-    - Krijg de tegenstander over het midden om te winnen'
+    - Krijg de tegenstander over het midden om te winnen binnen 100 secondes'
 --- !u!222 &1724869182
 CanvasRenderer:
   m_ObjectHideFlags: 0
